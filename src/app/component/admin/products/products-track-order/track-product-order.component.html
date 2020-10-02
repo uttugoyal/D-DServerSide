@@ -1,0 +1,79 @@
+<div class="container">
+    <br>
+    <h1 class="page-header">Track Product Order</h1>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <table class="table">
+                 <!--   <tr>
+                        <td><label for="oder-id">Order ID</label></td>
+                        <td>
+                            <input type="number" id="orderid" class="form-control" name="orderid" [(ngModel)]="orderId"
+                            required pattern="^[1-9][0-9]*$"   #orderid="ngModel" required>
+                            <span style="color:red;" class="help-block" *ngIf="!orderid.valid && orderid.touched">Please
+                                enter a OrderId !</span>
+                        </td>
+                    </tr>-->
+
+                    <tr>
+                        <td>
+                          <label for="orderId">Enter Order ID</label>
+                        </td>
+                        <td>
+                          <select id="orderId" class="form-control" [(ngModel)]="order" name="sid" #did="ngModel">
+                            <option *ngFor="let order of productOrders" [ngValue]="order">{{order.orderId}}</option>
+                          </select>
+                          <span style="color:red;" class="help-block" *ngIf="!did.valid && did.touched">Please
+                            enter a valid ID!</span>
+                        </td>
+                      </tr>
+
+                </table>
+                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Display</button>
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="submitted && productOrder.orderId !=null ">
+        <div class="col-xs-12">
+            <h1>Order Details</h1>
+            <br>
+            <div class="row">
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Distributor Name</th>
+                                <th scope="col">Distributor Location</th>
+                                <th scope="col">Distributor PhoneNo</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Delivery Date</th>
+                                <th scope="col">Total Order Price</th>
+                                <th scope="col">Delivery Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>   
+                            <td>{{productOrder.orderId}}</td>
+                                <td>{{productOrder.name}}</td>
+                                <td>{{productOrder.distributor.name}}</td>
+                                <td>{{productOrder.distributor.location}}</td>
+                                <td>{{productOrder.distributor.phoneNumber}}</td>
+                                <td>{{productOrder.dateOfOrder}}</td>
+                                <td>{{productOrder.dateOfDelivery}}</td>
+                                <td>{{productOrder.totalPrice}}</td>
+                                <td>{{productOrder.deliveryStatus}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+            </div>
+           
+           
+        </div>
+</div>

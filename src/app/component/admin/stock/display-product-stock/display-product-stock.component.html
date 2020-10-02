@@ -1,0 +1,36 @@
+<div class="container">
+    <br>
+    <h1>Product Stock Details</h1>
+    <br>
+    <div class="row">
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Id</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price per Unit</th>
+                        <th scope="col">Quantity Unit</th>
+                        <th scope="col">Total Stock Price</th>
+                        <th scope="col">Manufacturing Date</th>
+                        <th scope="col">Expiry Date</th>
+                        <th scope="col">Process Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pStock of productStock; index as i">
+                        <td>{{pStock.stockId}}</td>
+                        <td>{{pStock.name}}</td>
+                        <td>{{pStock.pricePerUnit}}</td>
+                        <td>{{pStock.quantityUnit}}</td>
+                        <td>{{pStock.price}}</td>
+                        <td>{{pStock.manufacturingDate}}</td>
+                        <td>{{pStock.expiryDate}}</td>
+                        <td>{{pStock.processDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

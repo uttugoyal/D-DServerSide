@@ -1,0 +1,80 @@
+<div class="container">
+    <br>
+    <h1>Track Raw Material Order</h1>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <table class="table">
+                <!--    <tr>
+                        <td><label for="oder-id">Order ID</label></td>
+                        <td>
+                            <input type="number" id="oder-id" class="form-control" name="oder-id" [(ngModel)]="orderId"
+                                #orderid="ngModel" required>
+                            <span style="color:red;" class="help-block" *ngIf="!orderid.valid && orderid.touched">Please
+                                enter a OrderId !</span>
+                        </td>
+                    </tr> -->
+
+
+                    <tr>
+                        <td>
+                          <label for="orderId">Enter Order ID</label>
+                        </td>
+                        <td>
+                          <select id="orderId" class="form-control" [(ngModel)]="order" name="sid" #did="ngModel">
+                            <option *ngFor="let order of rawMaterialOrders" [ngValue]="order">{{order.orderId}}</option>
+                          </select>
+                          <span style="color:red;" class="help-block" *ngIf="!did.valid && did.touched">Please
+                            enter a valid ID!</span>
+                        </td>
+                      </tr>
+
+                </table>
+                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Display</button>
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="submitted">
+        <div class="col-xs-12">
+            <h1>Order Details</h1>
+            <br>
+            <div class="row">
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Raw Material Id</th>
+                                <th scope="col">Raw Material Name</th>
+                                <th scope="col">Supplier Name</th>
+                                <th scope="col">Supplier Location</th>
+                                <th scope="col">Supplier PhoneNo</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Delivery Date</th>
+                                <th scope="col">Total Order Price</th>
+                                <th scope="col">Delivery Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>   
+                            <td>{{rawMaterialOrder.orderId}}</td>
+                                <td>{{rawMaterialOrder.name}}</td>
+                                <td>{{rawMaterialOrder.supplier.name}}</td>
+                                <td>{{rawMaterialOrder.supplier.location}}</td>
+                                <td>{{rawMaterialOrder.supplier.phoneNumber}}</td>
+                                <td>{{rawMaterialOrder.dateOfOrder}}</td>
+                                <td>{{rawMaterialOrder.dateOfDelivery}}</td>
+                                <td>{{rawMaterialOrder.totalPrice}}</td>
+                                <td>{{rawMaterialOrder.deliveryStatus}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+            </div>
+        </div>
+        <br><br>
+    </div>
+</div>

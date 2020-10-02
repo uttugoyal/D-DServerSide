@@ -1,0 +1,63 @@
+<div id="order">
+    <div class="container">
+        <br>
+        <h1 class="page-header">Add Supplier</h1>
+        
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+              <table class="table">
+                <tr>
+                  <td>
+                    <label for="product-name">Supplier Name</label>
+                  </td>
+                  <td>
+                    <input type="text" id="product-name" class="form-control" name="product-name" [(ngModel)]="name" 
+                    required pattern="^[a-zA-Z ]+$" #pname="ngModel"
+                      required>
+                    <span style="color:red;" class="help-block" *ngIf="!pname.valid && pname.touched">Please
+                      enter a valid name !</span>
+                  </td>
+                </tr>
+              
+                
+                <tr>
+                  <td>
+                    <label for="quantity-unit">Phone no.</label>
+                  </td>
+                  <td>
+                    <input type="number" id="unit" class="form-control" name="quantity-unit" [(ngModel)]="phoneNumber"
+                    required pattern="^[2-9]{1}[0-9]{9}$" #unit="ngModel"
+                      required>
+                    <span style="color:red;" class="help-block" *ngIf="!unit.valid && unit.touched">Please
+                      enter a valid Phone no. !</span>
+                  </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                      <label for="quality-check">Location</label>
+                    </td>
+                    <td>
+                      <input type="text" id="unit" class="form-control" name="quality-check" [(ngModel)]="location" 
+                      required pattern="^[a-zA-Z ]+$" #qc="ngModel"
+                        required>
+                      <span style="color:red;" class="help-block" *ngIf="!qc.valid && qc.touched">Please
+                        enter  correct location !</span>
+                    </td>
+                  </tr>
+              
+
+              </table>
+              <button [disabled]="!f.valid" class="btn btn-primary" type="submit">Add Stock</button>
+            </form>
+          </div>
+        </div>
+        <div class="row" *ngIf="submitted">
+          <div class="col-xs-12">
+            <h3>Supplier Added Successfully</h3>
+          </div>
+          <br><br>
+        </div>
+      </div>
+    </div>
