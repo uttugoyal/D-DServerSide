@@ -1,1 +1,1 @@
-# Drink&Delight Application
+# Drink&Delight Backend Application
